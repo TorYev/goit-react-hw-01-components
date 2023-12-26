@@ -8,8 +8,7 @@ export const TransactionRow = ({ type, amount, currency }) => {
   );
 };
 
-// Компонент таблицы истории транзакций
-const TransactionHistory = ({ items }) => {
+export const TransactionHistory = ({ items }) => {
   return (
     <table className="transaction-history">
       <thead>
@@ -27,5 +26,3 @@ const TransactionHistory = ({ items }) => {
     </table>
   );
 };
-
-export default TransactionHistory;

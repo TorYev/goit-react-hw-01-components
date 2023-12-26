@@ -9,19 +9,23 @@ import { Fragment } from 'react';
 import { FriendList } from './Friends/FriendList';
 import { TransactionHistory } from './Transactions/TransactionHistory';
 
+import { Container } from './App.styled';
+
 export const App = () => {
   return (
-    <Fragment>
-      <Profile
-        username={user.username}
-        tag={user.tag}
-        location={user.location}
-        avatar={user.avatar}
-        stats={user.stats}
-      />
+    <>
+      <Container>
+        <Profile
+          username={user.username}
+          tag={user.tag}
+          location={user.location}
+          avatar={user.avatar}
+          stats={user.stats}
+        />
+      </Container>
       <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />
       <TransactionHistory items={transactions} />;
-    </Fragment>
+    </>
   );
 };
