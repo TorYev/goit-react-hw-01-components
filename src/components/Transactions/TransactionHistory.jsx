@@ -1,31 +1,27 @@
-export const TransactionRow = ({ type, amount, currency }) => {
-  return (
-    <tr>
-      <td>{type.charAt(0).toUpperCase() + type.slice(1)}</td> {type}
-      <td>{amount}</td>
-      <td>{currency}</td>
-    </tr>
-  );
-};
+import css from './TransactionHistory.module.css';
 
-// Компонент таблицы истории транзакций
-const TransactionHistory = ({ items }) => {
+export const TransactionHistory = ({ items }) => {
   return (
-    <table className="transaction-history">
+    <table className={css.table}>
       <thead>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+        <tr className={css.tr}>
+          <th className={css.th}>Type</th>
+          <th className={css.th}>Amount</th>
+          <th className={css.th}>Currency</th>
         </tr>
       </thead>
+
       <tbody>
-        {items.map(item => (
-          <TransactionRow key={item.id} {...item} />
-        ))}
+        {items.map(({ id, type, amount, currency }) => {
+          return (
+            <tr key={id} className={css.tr}>
+              <td className={css.td}>{type}</td>
+              <td>{amount}</td>
+              <td>{currency}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
 };
-
-export default TransactionHistory;
