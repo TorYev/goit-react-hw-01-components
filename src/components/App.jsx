@@ -6,17 +6,21 @@ import transactions from '../data/transactions.json';
 import { Profile } from './Profile/Profile';
 import { Statistics } from './Statistics/Statistics';
 import { FriendList } from './Friends/FriendList';
-import {TransactionHistory} from './Transactions/TransactionHistory';
-
-import css from './app.module.css';
+import { TransactionHistory } from './Transactions/TransactionHistory';
 
 export const App = () => {
   return (
-    <div className={css.app}>
-      <Profile cart={user} />
+    <Fragment>
+      <Profile
+        username={user.username}
+        tag={user.tag}
+        location={user.location}
+        avatar={user.avatar}
+        stats={user.stats}
+      />
       <Statistics title="Upload stats" stats={data} />
       <FriendList friends={friends} />
-      <TransactionHistory items={transactions} />
-    </div>
+      <TransactionHistory items={transactions} />;
+    </Fragment>
   );
 };
